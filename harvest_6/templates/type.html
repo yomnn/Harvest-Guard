@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HARVEST</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/types.css') }}">
+
+</head>
+<body>
+
+
+    
+
+<div class="gallery">
+
+
+    <div class="navbar">
+        <div class="icon">
+          <h2 class="logo">HARVEST GUARD</h2>
+        </div>
+        
+      </div>
+
+
+    <ul class="controls">
+        <li class="buttons active" data-filter="all">all</li>
+        <li class="buttons" data-filter="vegetables">vegetables</li>
+        <li class="buttons" data-filter="fruits">fruits</li>
+        <li class="buttons" data-filter="seeds">seeds</li>
+       
+        <li class="buttons"  style="background-color: rgb(190, 235, 69) " onclick="window.location.href='/'">home</li>
+    </ul>
+
+    <div class="image-container">
+
+        <a href="/ttomato" class="image vegetables">
+            <img src="./static/images/tomato.jpg" alt="">
+        </a>
+        <a href="/tpotato" class="image vegetables">
+            <img src="./static/images/potato.jpg" alt="">
+        </a>
+       <a href="/tapple" class="image fruits">
+            <img src="./static/images/apple.jpg" alt="">
+        </a>
+
+        <a href="/tcorn" class="image seeds">
+            <img src="./static/images/corn.jpg" alt="">
+        </a>
+        <a href="/tgrape" class="image fruits">
+            <img src="./static/images/grape.jpg" alt="">
+        </a>
+
+        <a href="/tcotton" class="image seeds">
+            <img src="./static/images/cotton.png" alt="">
+        </a>
+      
+        <a href="/tpepper" class="image vegetables">
+            <img src="./static/images/pepper.jpeg" alt="">
+        </a>
+       
+        <a href="/tpeach" class="image fruits">
+            <img src="./static/images/peach.webp" alt="">
+        </a>
+        <a href="/tcherry" class="image fruits">
+            <img src="./static/images/cherry.jpg" alt="">
+        </a> 
+
+        <a href="/tbanana" class="image fruits">
+            <img src="./static/images/banana.jpg"alt="">
+        </a>
+        <a href="/trice" class="image seeds">
+            <img src="./static/images/rice.jpg" alt="">
+        </a>
+        <a href="/tmango" class="image fruits">
+            <img src="./static/images/mango.jpeg" alt="">
+        </a>
+        <a href="/teggplant" class="image vegetables">
+            <img src="./static/images/eggplant.png" alt="">
+        </a>
+       
+    </div>
+
+</div>
+
+
+<!-- jquery cdn link   It allows to use jQuery in your web page  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+<script>
+
+ 
+
+    $('.buttons').click(function(){   // separate buttons to all, vegetables, fruits, seeds
+        $(this).addClass('active').siblings().removeClass('active');
+        var filter = $(this).attr('data-filter');
+        if(filter == 'all'){
+            $('.image').show(400);
+        }else{
+            $('.image').not('.'+filter).hide(200);
+            $('.image').filter('.'+filter).show(400);
+        }
+    });
+
+ 
+
+</script>
+
+ <!-- Include jQuery for AJAX handling -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HARVEST</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/first.css') }}">
+   
+    <style>
+        
+    
+body {
+	font-family: Arial, sans-serif;
+  background-color: transparent; /* Transparent background */
+  width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0, 0, 0, 0.5)50%), url("/static/images/peach.webp") no-repeat center center fixed ;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+ 
+h1 {
+	 	  
+	color:#f0d332;
+	font-weight:700;
+	margin-top:70px;	 
+	text-align:center;
+	text-transform:uppercase;
+	letter-spacing:4px;
+	line-height:23px;
+}
+
+/* --- Start progress bar --- */
+
+.process-wrapper {
+	margin:auto;
+	max-width:1080px;
+}
+
+#progress-bar-container {
+	position:relative;
+	width:90%;
+	margin:auto;
+	height:100px;
+	margin-top:50px;
+}
+
+#progress-bar-container ul {
+	padding:0;
+	margin:0;
+	padding-top:15px;
+	z-index:9999;
+	position:absolute;
+	width:100%;
+	margin-top:-40px
+}
+
+#progress-bar-container li:before {
+	content:" ";
+	display:block;
+	margin:auto;
+	width:30px;
+	height:30px;
+	border-radius:50%;
+	border:solid 2px #aaa;
+	transition:all ease 0.3s;
+     
+}
+
+#progress-bar-container li.active:before, #progress-bar-container li:hover:before {
+	border:solid px #fff;
+       	 
+	background: linear-gradient(to right, #f0d332 0%,#fff 100%); 
+}
+
+#progress-bar-container li {
+	list-style:none;
+	float:left;
+	width: 20%;
+	text-align:center;
+	color:#aaa;
+	text-transform:uppercase;
+	font-size:11px;
+	cursor:pointer;
+	font-weight:700;
+	transition:all ease 0.2s;
+	vertical-align:bottom;
+	height:60px;
+	position:relative;
+}
+
+#progress-bar-container li .step-inner {
+	position:absolute;
+	width:100%;
+	bottom:0;
+    font-size: 14px;
+}
+
+#progress-bar-container li.active, #progress-bar-container li:hover {
+	color:#d3d3d3;
+}
+
+#progress-bar-container li:after {
+	content:" ";
+	display:block;
+	width:6px;
+	height:6px;
+	background:#777;
+	margin:auto;
+	border:solid 7px #fff;
+	border-radius:50%;
+	margin-top:40px;
+	box-shadow:0 2px 13px -1px rgba(0,0,0,0.3);
+	transition:all ease 0.2s;
+     
+}
+
+#progress-bar-container li:hover:after {
+	background:#555;
+}
+
+#progress-bar-container li.active:after {
+	background:#48a313;
+}
+
+#progress-bar-container #line {
+	width:80%;
+	margin:auto;
+	background: #eee;
+	height:6px;
+	position:absolute;
+	left:13%;
+	top:80px;
+	z-index:1;
+	border-radius:50px;
+	transition:all ease 0.9s;
+}
+
+#progress-bar-container #line-progress {
+	content:" ";
+	width:3%;
+	height:100%;
+	background: #48a313;	 
+	background: linear-gradient(to right, #48a313 0%,#2ea3b7 100%); 
+	position:absolute;
+	z-index:2;
+	border-radius:50px;
+	transition:all ease 0.9s;
+}
+
+#progress-content-section {
+	width:90%;
+	margin: auto;
+	background: #f3f3f3;
+	border-radius: 4px;
+}
+
+#progress-content-section .section-content {
+	padding:30px 40px;
+	text-align:center;
+}
+
+#progress-content-section .section-content h2 {
+	font-size:17px;
+	text-transform:uppercase;
+	color:#333;
+	letter-spacing:1px;
+}
+
+#progress-content-section .section-content p {
+	font-size:16px;
+	line-height:1.8em;
+	color:#777;
+}
+
+#progress-content-section .section-content {
+	display:none;
+	animation: FadeInUp 700ms ease 1;
+	animation-fill-mode:forwards;
+	transform:translateY(15px);
+	opacity:0;
+}
+
+#progress-content-section .section-content.active {
+	display:block;
+}
+
+@keyframes FadeInUp {
+	0% {
+		transform:translateY(15px);
+		opacity:0;
+	}
+	
+	100% {
+		transform:translateY(0px);
+		opacity:1;
+	}
+}
+
+ 
+    </style>
+</head>
+<body>
+ 
+
+
+	<div class="navbar">
+		<div class="icon">
+		  <h2 class="logo">HARVEST GUARD</h2>
+		</div>
+		<div class="menu">
+			<ul>
+				<li><a href="/">HOME</a></li>
+				<li><a href="/about">ABOUT</a></li>
+				<li><a href="/contact">CONTACTUS</a></li>
+				<li><a href="/TYPESpage">TYPES</a></li>
+				<li><a href="/info">INFO</a></li>
+				<li><a href="/learn">LEARN</a></li>
+		
+				  
+				  
+			  </ul>
+		</div>
+	
+	  </div>
+
+
+<h1>PEACH</h1>
+<br> 
+<div class="process-wrapper">
+<div id="progress-bar-container">
+	<ul>
+		<li class="step step01 active"><div class="step-inner">Sunlight</div></li>
+		<li class="step step02"><div class="step-inner">Humidity </div></li>
+		<li class="step step03"><div class="step-inner">Water </div></li>
+		<li class="step step04"><div class="step-inner">Soil</div></li>
+		
+	</ul>
+	
+	<div id="line">
+		<div id="line-progress"></div>
+	</div>
+</div>
+
+<div id="progress-content-section">
+	<div class="section-content discovery active">
+		<h2>Sunlight And Temperature</h2>
+		<p> Peaches require ample sunlight for optimal growth and fruit production. They thrive in full sun conditions, needing around 6 to 8 hours of direct sunlight daily. Additionally, peaches prefer warm temperatures, ideally between 70°F (21°C) and 85°F (29°C) during the growing season. Adequate sunlight exposure and warm temperatures are crucial for flowering, fruit development, and the overall quality of peaches.
+
+
+
+
+        </p>
+	</div>
+	<div class="section-content strategy">
+		<h2>Humidity</h2>
+		<p>
+            Peaches prefer moderate humidity levels. While they can tolerate different humidity levels, excessively high humidity can promote diseases such as peach leaf curl. Good air circulation within the orchard helps reduce humidity-related issues.</p>
+	</div>
+	
+	<div class="section-content creative">
+		<h2>Water</h2>
+		<p> Peaches require consistent moisture, especially during fruit development. Adequate irrigation is crucial, but it's essential to avoid waterlogging, which can harm the roots. Well-draining soil with proper irrigation methods helps maintain optimal moisture levels for peach trees.</p>
+	</div>
+
+	
+	<div class="section-content production">
+		<h2>Soil</h2>
+		<p> Peaches thrive in well-draining, fertile soil with a pH level between 6.0 and 7.0. Sandy loam or loamy soils rich in organic matter support healthy root growth and overall tree health.</p>
+	
+	</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+ <script>
+    
+    $(".step").click( function() {
+	$(this).addClass("active").prevAll().addClass("active");
+	$(this).nextAll().removeClass("active");
+});
+
+$(".step01").click( function() {
+	$("#line-progress").css("width", "3%");
+	$(".discovery").addClass("active").siblings().removeClass("active");
+});
+
+$(".step02").click( function() {
+	$("#line-progress").css("width", "34%");
+	$(".strategy").addClass("active").siblings().removeClass("active");
+});
+
+$(".step03").click( function() {
+	$("#line-progress").css("width", "65%");
+	$(".creative").addClass("active").siblings().removeClass("active");
+});
+
+$(".step04").click( function() {
+	$("#line-progress").css("width", "100%");
+	$(".production").addClass("active").siblings().removeClass("active");
+});
+
+$(".step05").click( function() {
+	$("#line-progress").css("width", "100%");
+	$(".analysis").addClass("active").siblings().removeClass("active");
+});
+
+ 
+    </script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<html>
+  <head>
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>HARVEST</title>
+      <!-- Font Awesome Icons -->
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+      />
+      <!-- Google Fonts -->
+      <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+        rel="stylesheet"
+      />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #34495e;
+  color: #fff;
+}
+
+  
+
+ </style>
+  </head>
+
+  
+
+
+
+  <body>
+    <nav>
+      <div class="icon">
+        <h2 class="logo" >HARVEST GUARD</h2>
+      </div>
+      
+      <input type="checkbox" id="hamburger" />
+      <label for="hamburger">
+        <i class="fa-solid fa-bars"></i>
+      </label>
+
+      
+      <ul>
+        <li><a href="/">HOME</a></li>
+        <li><a href="/about">ABOUT</a></li>
+        <li><a href="/contact">CONTACTUS</a></li>
+        <li><a href="/TypePage">TYPES</a></li>
+        <li><a href="/info">INFO</a></li>
+        <li><a href="/learn">LEARN</a></li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <h1>About Us</h1>
+      <h3>your trusted partner in plant health management <br> through innovative disease detection technology.</h3>
+    </div>
+    <div class="accordion">
+      <div class="accordion-item">
+        <div class="accordion-item-header">
+          <span>Our Mission</span>
+          <span class="plus-icon">+</span>
+        </div>
+
+        <div class="accordion-item-body">
+          <div class="accordion-item-body-content">
+            At Harvest Guard, our mission is to revolutionize the agricultural landscape by providing cutting-edge solutions for early detection and prevention of plant diseases. We believe in empowering farmers and growers with advanced tools to safeguard their crops, increase yields, and contribute to global food security.
+          </div>
+        </div>
+      </div>
+
+
+      <div class="accordion-item">
+        <div class="accordion-item-header">
+          <span>What We Offer</span>
+          <span class="plus-icon">+</span>
+        </div>
+
+        <div class="accordion-item-body">
+          <div class="accordion-item-body-content">
+            Harvest Guard specializes in utilizing state-of-the-art artificial intelligence and machine learning algorithms to identify and diagnose plant diseases accurately and efficiently. Our platform offers:
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="accordion-item">
+        <div class="accordion-item-header">
+          <span> Our Team</span>
+          <span class="plus-icon">+</span>
+        </div>
+
+        <div class="accordion-item-body">
+          <div class="accordion-item-body-content">
+            Our team comprises dedicated experts in agriculture, machine learning, and software development. We're passionate about leveraging technology to address the challenges faced by the agricultural community and are committed to continual improvement and innovation.
+          </div>
+        </div>
+      </div>
+
+
+      <div class="accordion-item">
+        <div class="accordion-item-header">
+          <span> Get in Touch</span>
+          <span class="plus-icon">+</span>
+        </div>
+
+        <div class="accordion-item-body">
+          <div class="accordion-item-body-content">
+            At Harvest Guard, we value collaboration and feedback. Whether you're a farmer, researcher, or industry stakeholder, we welcome partnerships and insights that can contribute to enhancing our services and making a significant impact on global agriculture.
+          </div>
+        </div>
+      </div>
+
+
+      
+
+
+        
+      <!-- Additional accordion items... -->
+    </div>
+    
+    
+    <script>
+      const accordionItemHeaders = document.querySelectorAll(".accordion-item-header");
+
+accordionItemHeaders.forEach(accordionItemHeader => {
+  accordionItemHeader.addEventListener("click", event => {
+    
+    
+    accordionItemHeader.classList.toggle("active");
+    const accordionItemBody = accordionItemHeader.nextElementSibling;
+    if(accordionItemHeader.classList.contains("active")) {
+      accordionItemBody.style.maxHeight = accordionItemBody.scrollHeight + "px";
+    }
+    else {
+      accordionItemBody.style.maxHeight = 0;
+    }
+    
+  });
+});
+  </script>
+  
+  
+  </body>

@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HARVEST</title>
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/learn.css') }}">
+</head>
+
+<body>
+
+
+    <nav>
+        <div class="icon">
+          <h2 class="logo" >HARVEST GUARD</h2>
+        </div>
+        
+        <input type="checkbox" id="hamburger" />
+        <label for="hamburger">
+          <i class="fa-solid fa-bars"></i>
+        </label>
+  
+        
+        <ul>
+            <li><a href="/">HOME</a></li>
+            <li><a href="/about">ABOUT</a></li>
+            <li><a href="/contact">CONTACTUS</a></li>
+            <li><a href="/TypePage">TYPES</a></li>
+            <li><a href="/info">INFO</a></li>
+            <li><a href="/learn">LEARN</a></li>
+        </ul>
+      </nav>
+  
+  
+      <main class="table" >
+        <section class="table__header">
+            <h1>LEARNING</h1>
+            <div class="input-group">
+                <input type="search" placeholder="Search Data...">
+                
+            </div>
+            <div class="">
+                
+                
+                
+            </div>
+        </section>
+        <section class="table__body">
+            <table>
+                <thead>
+                    <tr>
+                
+                        <th> plants <span class="icon-arrow">&UpArrow;</span></th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr onclick="redirectToPage('../PLANT-LEARN/apple-learn.html')">
+                        <td> Apple</td>
+                    </tr>
+                    <tr onclick="redirectToPage('../PLANT-LEARN/banana.html')" >
+                        <td> Banana</td>
+                    </tr>
+                    <tr   onclick="redirectToPage('../PLANT-LEARN/cherry.html')">
+                        <td> Cherry</td>
+                    </tr>
+                    <tr   onclick="redirectToPage('../PLANT-LEARN/corn.html')">
+                        <td> Corn</td>
+                    </tr>
+                    <tr   onclick="redirectToPage('../PLANT-LEARN/cotton.html')">
+                        <td> Cotton</td>
+                    </tr>
+                    <tr   onclick="redirectToPage('../PLANT-LEARN/cucumber.html')">
+                        <td> Cucumber</td>
+                    </tr>
+                    <tr  onclick="redirectToPage('../PLANT-LEARN/eggplant.html')" >
+                        <td> Eggplant</td>
+                    </tr>
+                    <tr   onclick="redirectToPage('../PLANT-LEARN/grape.html')">
+                        <td> Grape</td>
+                    </tr>
+                    <tr   onclick="redirectToPage('../PLANT-LEARN/mango.html')">
+                        <td> Mango</td>
+                    </tr>
+                    <tr   onclick="redirectToPage('../PLANT-LEARN/peach.html')">
+                        <td> Peach</td>
+                    </tr>
+                    <tr   onclick="redirectToPage('../PLANT-LEARN/pepper.html')">
+                        <td> Pepper</td>
+                    </tr>
+                    <tr onclick="redirectToPage('../PLANT-LEARN/potato.html')" >
+                        <td> Potato</td>
+                    </tr>
+                    <tr  onclick="redirectToPage('../PLANT-LEARN/rice.html')">
+                        <td> Rice</td>
+                    </tr>
+                    <tr onclick="redirectToPage('../PLANT-LEARN/soybean.html')" >
+                        <td> Soybeans</td>
+                    </tr>
+                    <tr  onclick="redirectToPage('../PLANT-LEARN/strawberry.html')">
+                        <td> Strawberry</td>
+                    </tr>
+                    <tr onclick="redirectToPage('../PLANT-LEARN/tomato-learn.html')">
+                        <td> Tomato</td>
+                    </tr>
+                
+  
+                </tbody>
+            </table>
+        </section>
+    </main>
+    
+      
+    
+    <script  src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

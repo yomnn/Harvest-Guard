@@ -1,0 +1,152 @@
+<html>
+  <head>
+    <title>HARVEST</title>
+    <link rel="stylesheet"href="{{ url_for('static', filename='css/first.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/stylee.css') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500,700,900|Work+Sans:300" rel="stylesheet">
+  </head>
+  <body>
+    <div class="main">
+      <div class="navbar">
+        <div class="icon">
+          <h2 class="logo">HARVEST GUARD</h2>
+        </div>
+        <div class="menu">
+          <ul>
+              <li><a href="/">HOME</a></li>
+              <li><a href="/about">ABOUT</a></li>
+              <li><a href="/contact">CONTACTUS</a></li>
+              <li><a href="/TypePage">TYPES</a></li>
+              <li><a href="/info">INFO</a></li>
+              <li><a href="/learn">LEARN</a></li>
+          </ul>
+      </div>
+      </div>
+      <div class="contact-container">
+        <div class="contact-inner-container">
+      
+          <div class="contact-info-container">
+            <h1 class="contact-heading">Contact Us</h1>
+            <p class="contact-description">
+              We're open for any suggestion or just to have a chat.
+            </p>
+            <div class="line"></div>
+      
+            <div class="contact-details">
+              <h3><i class="fa fa-map-maker"></i> Address</h3>
+              <p>Faculty of computer and data science Alexandria university</p>
+            </div>
+            <hr />
+      
+            <div class="contact-details">
+              <h3><i class="fa fa-envelope"></i> Email</h3>
+              <p>HarvestGuard@gmail.com</p>
+            </div>
+            <hr />
+      
+            <div class="contact-details">
+              <h3><i class="fa fa-phone"></i> Lets Talk</h3>
+              <p>01136798771</p>
+            </div>
+            <hr />
+      
+            <div class="social-link-container">
+              <i class="fa fa-instagram"></i>
+              <i class="fa fa-facebook"></i>
+              <i class="fa fa-twitter"></i>
+              <i class="fa fa-linkedin"></i>
+            </div>
+          </div>
+          <div class="contact-form">
+            <form class="form" id="contactForm">
+              <div class="form-group">
+                <input type="text" name="name" id="name" class="input-field form-input" placeholder="Name" required>
+                <span class="error-message" id="nameError"></span>
+              </div>
+              <div class="form-group">
+                <input type="email" name="email" id="email" class="input-field form-input" placeholder="Email" required>
+                <span class="error-message" id="emailError"></span>
+              </div>
+              <div class="form-group">
+                <textarea name="message" id="message" rows="5" class="input-field form-input" placeholder="Message" required></textarea>
+                <span class="error-message" id="messageError"></span>
+              </div>
+              <div class="form-group">
+                <input type="submit" class="input-field submit-btn" value="Submit">
+              </div>
+            </form>
+          </div>
+          
+      
+       
+      
+        </div>
+      </div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+<script src="{{ url_for('static', filename='js/st.js') }}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('#contactForm').submit(function(e) {
+    e.preventDefault(); // Prevent form submission
+    
+    // Get form data
+    var formData = {
+      name: $('#name').val(),
+      email: $('#email').val(),
+      message: $('#message').val()
+    };
+    
+    // Send form data to server using AJAX
+    $.ajax({
+  type: 'POST',
+  url: '/submit-form',
+  contentType: 'application/json', // Set content type to JSON
+  data: JSON.stringify(formData), // Convert form data to JSON string
+  success: function(response) {
+    alert('Form submitted successfully!');
+    $('#contactForm')[0].reset();
+  },
+  error: function(err) {
+    alert('Error submitting form: ' + err.responseText);
+  }
+});
+$.ajax({
+  type: 'GET', // Change the request type to GET
+  url: '/get-submissions', // New endpoint to retrieve submissions
+  success: function(response) {
+    // Handle successful response
+    console.log(response); // Log the retrieved submissions
+    // Render the retrieved submissions on the webpage
+    renderSubmissions(response);
+  },
+  error: function(err) {
+    // Handle error
+    console.error('Error fetching submissions:', err);
+  }
+});
+
+// Function to render submissions on the webpage
+function renderSubmissions(submissions) {
+  // Clear existing submissions
+  $('#submissions').empty();
+  // Loop through each submission
+  submissions.forEach(function(submission) {
+    // Create HTML elements to display submission data
+    var submissionHTML = '<div class="submission">' +
+                         '<p><strong>Name:</strong> ' + submission.name + '</p>' +
+                         '<p><strong>Email:</strong> ' + submission.email + '</p>' +
+                         '<p><strong>Message:</strong> ' + submission.message + '</p>' +
+                         '</div>';
+    // Append the HTML to the webpage
+    $('#submissions').append(submissionHTML);
+  });
+}
+
+
+</script>
+
+
+  </body>
+</html>

@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>harvest</title>
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/each-type.css') }}">
+  </head>
+
+  <style>
+    body {
+      background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0, 0, 0, 0.5)50%), url("/static/images/tomato.jpg") no-repeat center center fixed ;
+      background-size: cover;
+  }
+  </style>
+
+
+
+  <body>
+    <nav>
+      <div class="icon">
+        <h2 class="logo" >HARVEST GUARD</h2>
+      </div>
+      
+      <input type="checkbox" id="hamburger" />
+      <label for="hamburger">
+        <i class="fa-solid fa-bars"></i>
+      </label>
+
+      
+      <ul>
+        <li><a href="/">HOME</a></li>
+        <li><a href="/about">ABOUT</a></li>
+        <li><a href="/contact">CONTACTUS</a></li>
+        <li><a href="/TypePage">TYPES</a></li>
+        <li><a href="/info">INFO</a></li>
+        <li><a href="/learn">LEARN</a></li>
+      </ul>
+    </nav>
+
+
+
+    <div class="content">
+      <h1>TOMATOES</h1>
+      <br><br>
+
+
+      <form id="uploadForm" enctype="multipart/form-data">
+          <!-- Hidden input to pass the model type value -->
+          <input type="hidden" name="model_type" value="tomato" >
+      
+            <br><br>
+            <input type="file" name="file" id="fileInput" required  required style="margin-top: -20px;">
+            <br><br>
+            <button type="submit" >Analyze Image</button>
+        </form>
+        <div id="predictionResult" class="prediction-result"></div> <!-- Placeholder for prediction result -->
+    </div>
+</div>
+
+<script>
+    document.getElementById("uploadForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent default form submission
+        
+        // Perform AJAX request to submit form data
+        var formData = new FormData(this);
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/TypePage");
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                // Update the prediction result on the page
+                document.getElementById("predictionResult").innerHTML = xhr.responseText;
+            } else {
+                console.error("Request failed: " + xhr.status);
+            }
+        };
+        xhr.send(formData);
+    });
+</script>
+
+  </body>
+</html>
